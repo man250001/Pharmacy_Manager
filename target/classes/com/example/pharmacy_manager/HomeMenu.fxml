@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <left>
+            <AnchorPane fx:id="Leftbox" prefHeight="274.0" prefWidth="300.0" styleClass="boxleft" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="12.0" layoutY="2.0" prefHeight="241.0" prefWidth="238.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </left>
+         <top>
+            <AnchorPane prefHeight="114.0" prefWidth="600.0" styleClass="banner" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="7.0" layoutY="6.0" prefHeight="45.0" prefWidth="220.0" styleClass="hyperlink" text="Pharmacy Manager">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink layoutX="75.0" layoutY="78.0" stylesheets="@style.css" text="Dashboard" />
+                  <Hyperlink layoutX="259.0" layoutY="78.0" stylesheets="@style.css" text="Add Medicine" />
+                  <Hyperlink layoutX="428.0" layoutY="78.0" stylesheets="@style.css" text="Purchace Mediciine" />
+               </children>
+            </AnchorPane>
+         </top>
+         <right>
+            <AnchorPane fx:id="Rightbox" prefHeight="200.0" prefWidth="300.0" styleClass="boxright" stylesheets="@style.css" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+</StackPane>

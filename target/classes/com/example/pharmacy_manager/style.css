@@ -1,0 +1,20 @@
+.banner {
+    -fx-background-color: linear-gradient(to right, #ff0000, #4c00ff);
+}
+
+.boxleft {
+    -fx-border-color: black;
+    -fx-border-width: 3px;
+    -fx-background-color: linear-gradient(to right, #ff0000, #a6007e);
+}
+
+.boxright {
+    -fx-border-color: black;
+    -fx-border-width: 3px;
+    -fx-background-color: linear-gradient(to right, #a6007e, #4c00ff);
+}
+
+.hyperlink {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #6969698c ;
+}
