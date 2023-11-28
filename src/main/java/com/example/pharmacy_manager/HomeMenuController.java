@@ -1,14 +1,18 @@
 package com.example.pharmacy_manager;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.control.SplitPane;
+import javafx.scene.layout.AnchorPane;
 
+@SuppressWarnings("unused")
 public class HomeMenuController {
     @FXML
-    private Label welcomeText;
+    private SplitPane DashboardData;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+    private AnchorPane Leftbox, MedicineFields, MedicineTable, Rightbox, buyPane, buyTable, DashboardChart;
+
+    @FXML
+    private Button buyButton, cartButton;
 }
