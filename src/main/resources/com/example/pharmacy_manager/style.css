@@ -16,5 +16,47 @@
 
 .hyperlink {
     -fx-text-fill: #FFFFFF;
-    -fx-background-color: #6969698c ;
+    -fx-background-color: #696969 ;
+    -fx-background-radius: 50px;
+    -fx-padding: 3px;
+}
+
+.header {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #696969 ;
+    -fx-background-radius: 15px;
+}
+
+.text {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #898989 ;
+    -fx-background-radius: 15px;
+    -fx-padding: 3px;
+}
+
+.button {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #696969 ;
+    -fx-background-radius: 5px;
+    -fx-padding: 3px;
+}
+
+.number {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #898989 ;
+    -fx-background-radius: 15px;
+    -fx-padding: 6px;
+}
+
+.table-view {
+    -fx-border-color: #696969;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to right, #a6007e, #4c00ff) ;
+    -fx-text-fill: #FFFFFF;
+}
+
+.chart {
+    -fx-background-color: #FFFFFF ;
 }
