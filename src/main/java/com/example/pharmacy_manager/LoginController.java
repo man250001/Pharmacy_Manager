@@ -24,7 +24,7 @@ public class LoginController implements Initializable {
         loginButton.setOnAction(event -> {
             try {
                 if (DBUtils.logInUser(event, usernameField.getText(), passwordField.getText())) {
-                    DBUtils.changeScene(event, "homeMenu.fxml", "Home Menu");
+                    DBUtils.changeScene(event, "HomeMenu.fxml", "Home Menu");
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
