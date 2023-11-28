@@ -11,6 +11,7 @@ import java.sql.*;
 
 import java.io.IOException;
 
+@SuppressWarnings("unused")
 public class DBUtils {
 
     public static void changeScene(ActionEvent event, String _fxmlFile, String _title) {
