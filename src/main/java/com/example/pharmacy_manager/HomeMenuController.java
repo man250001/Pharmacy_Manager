@@ -13,17 +13,27 @@ import java.util.ResourceBundle;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class HomeMenuController implements Initializable {
+    //region Header Related
     @FXML
-    private SplitPane DashboardData;
+    private Hyperlink dashLink, medLink, buyLink;
 
     @FXML
     private AnchorPane Leftbox, MedicineFields, MedicineTable, Rightbox, buyPane, buyTable, DashboardChart;
 
     @FXML
-    private Button buyButton, cartButton;
+    private SplitPane DashboardData;
+    //endregion
 
+    //region Buy Medicine Related
     @FXML
-    private Hyperlink dashLink, medLink, buyLink;
+    private Button buyButton, cartButton;
+    //endregion
+
+    //region Add Medicine Related
+    //endregion
+
+    //region Dashboard Related
+    //endregion
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
