@@ -23,25 +23,25 @@ public class HomeMenuController implements Initializable {
     private Button buyButton, cartButton;
 
     @FXML
-    private Hyperlink dashlink, medlink, buylink;
+    private Hyperlink dashLink, medLink, buyLink;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        dashlink.setOnAction(event -> {
+        dashLink.setOnAction(event -> {
             PaneDisabler();
             Platform.runLater(() -> {
                 DashboardChart.setVisible(true);
                 DashboardData.setVisible(true);
             });
         });
-        medlink.setOnAction(event -> {
+        medLink.setOnAction(event -> {
             PaneDisabler();
             Platform.runLater(() -> {
                 MedicineFields.setVisible(true);
                 MedicineTable.setVisible(true);
             });
         });
-        buylink.setOnAction(event -> {
+        buyLink.setOnAction(event -> {
             PaneDisabler();
             Platform.runLater(() -> {
                 buyPane.setVisible(true);
