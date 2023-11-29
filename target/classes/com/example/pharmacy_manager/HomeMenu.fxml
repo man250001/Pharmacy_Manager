@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacy_manager.HomeMenuController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css">
          <left>
@@ -26,7 +26,7 @@
                <children>
                   <AnchorPane fx:id="DashboardChart" layoutX="12.0" layoutY="2.0" prefHeight="241.0" prefWidth="238.0" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <LineChart layoutX="14.0" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <LineChart layoutX="14.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -87,9 +87,9 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Hyperlink alignment="CENTER" layoutX="75.0" layoutY="78.0" stylesheets="@style.css" text="Dashboard" />
-                  <Hyperlink alignment="CENTER" layoutX="259.0" layoutY="78.0" stylesheets="@style.css" text="Add Medicine" />
-                  <Hyperlink alignment="CENTER" layoutX="428.0" layoutY="78.0" stylesheets="@style.css" text="Purchace Medicine" />
+                  <Hyperlink fx:id="dashlink" alignment="CENTER" layoutX="75.0" layoutY="78.0" stylesheets="@style.css" text="Dashboard" />
+                  <Hyperlink fx:id="medlink" alignment="CENTER" layoutX="259.0" layoutY="78.0" stylesheets="@style.css" text="Add Medicine" />
+                  <Hyperlink fx:id="buylink" alignment="CENTER" layoutX="428.0" layoutY="78.0" stylesheets="@style.css" text="Purchace Medicine" />
                </children>
             </AnchorPane>
          </top>
