@@ -28,22 +28,22 @@ public class HomeMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         dashLink.setOnAction(event -> {
-            PaneDisabler();
             Platform.runLater(() -> {
+                PaneDisabler();
                 DashboardChart.setVisible(true);
                 DashboardData.setVisible(true);
             });
         });
         medLink.setOnAction(event -> {
-            PaneDisabler();
             Platform.runLater(() -> {
+                PaneDisabler();
                 MedicineFields.setVisible(true);
                 MedicineTable.setVisible(true);
             });
         });
         buyLink.setOnAction(event -> {
-            PaneDisabler();
             Platform.runLater(() -> {
+                PaneDisabler();
                 buyPane.setVisible(true);
                 buyTable.setVisible(true);
             });
