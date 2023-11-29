@@ -87,9 +87,9 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Hyperlink fx:id="dashlink" alignment="CENTER" layoutX="75.0" layoutY="78.0" stylesheets="@style.css" text="Dashboard" />
-                  <Hyperlink fx:id="medlink" alignment="CENTER" layoutX="259.0" layoutY="78.0" stylesheets="@style.css" text="Add Medicine" />
-                  <Hyperlink fx:id="buylink" alignment="CENTER" layoutX="428.0" layoutY="78.0" stylesheets="@style.css" text="Purchace Medicine" />
+                  <Hyperlink fx:id="dashLink" alignment="CENTER" layoutX="75.0" layoutY="78.0" stylesheets="@style.css" text="Dashboard" />
+                  <Hyperlink fx:id="medLink" alignment="CENTER" layoutX="259.0" layoutY="78.0" stylesheets="@style.css" text="Add Medicine" />
+                  <Hyperlink fx:id="buyLink" alignment="CENTER" layoutX="428.0" layoutY="78.0" stylesheets="@style.css" text="Purchace Medicine" />
                </children>
             </AnchorPane>
          </top>
