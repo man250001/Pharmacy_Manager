@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class HomeMenuController implements Initializable {
     @FXML
     private SplitPane DashboardData;
@@ -27,27 +27,21 @@ public class HomeMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        dashLink.setOnAction(event -> {
-            Platform.runLater(() -> {
-                PaneDisabler();
-                DashboardChart.setVisible(true);
-                DashboardData.setVisible(true);
-            });
-        });
-        medLink.setOnAction(event -> {
-            Platform.runLater(() -> {
-                PaneDisabler();
-                MedicineFields.setVisible(true);
-                MedicineTable.setVisible(true);
-            });
-        });
-        buyLink.setOnAction(event -> {
-            Platform.runLater(() -> {
-                PaneDisabler();
-                buyPane.setVisible(true);
-                buyTable.setVisible(true);
-            });
-        });
+        dashLink.setOnAction(event -> Platform.runLater(() -> {
+            PaneDisabler();
+            DashboardChart.setVisible(true);
+            DashboardData.setVisible(true);
+        }));
+        medLink.setOnAction(event -> Platform.runLater(() -> {
+            PaneDisabler();
+            MedicineFields.setVisible(true);
+            MedicineTable.setVisible(true);
+        }));
+        buyLink.setOnAction(event -> Platform.runLater(() -> {
+            PaneDisabler();
+            buyPane.setVisible(true);
+            buyTable.setVisible(true);
+        }));
     }
 
     public void PaneDisabler() {

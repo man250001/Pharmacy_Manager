@@ -18,155 +18,183 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacy_manager.HomeMenuController">
-   <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css">
-         <left>
-            <AnchorPane fx:id="Leftbox" prefHeight="274.0" prefWidth="300.0" styleClass="boxleft" stylesheets="@style.css" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane fx:id="DashboardChart" layoutX="12.0" layoutY="2.0" prefHeight="241.0" prefWidth="238.0" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <LineChart layoutX="14.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </LineChart>
-                     </children></AnchorPane>
-                  <AnchorPane fx:id="MedicineFields" layoutX="50.0" layoutY="36.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <HBox alignment="CENTER" layoutX="47.0" layoutY="80.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="147.0" spacing="25.0">
-                                 <children>
-                                    <Label alignment="CENTER" styleClass="text" text="Medicine ID: " />
-                                    <Label alignment="CENTER" styleClass="text" text="Brand Name:" />
-                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="94.0" styleClass="text" text="Product Name:" />
-                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="42.0" styleClass="text" text="Type:" />
-                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="49.0" styleClass="text" text="Status:" />
-                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="49.0" styleClass="text" text="Price:" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="147.0" spacing="23.0">
-                                 <children>
-                                    <TextField />
-                                    <TextField />
-                                    <TextField />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <TextField promptText="\$0.00" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="buyTable" layoutX="50.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <columns>
-                              <TableColumn prefWidth="41.0" text="ID" />
-                              <TableColumn minWidth="9.0" prefWidth="76.0" text="Name" />
-                              <TableColumn prefWidth="89.0" text="Product Name" />
-                              <TableColumn prefWidth="42.0" text="Type" />
-                              <TableColumn prefWidth="45.0" text="Price" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </children>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+           prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pharmacy_manager.HomeMenuController">
+   <BorderPane prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css">
+      <left>
+         <AnchorPane fx:id="Leftbox" prefHeight="274.0" prefWidth="300.0" styleClass="boxleft"
+                     stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="DashboardChart" layoutX="12.0" layoutY="2.0" prefHeight="241.0" prefWidth="238.0"
+                        stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0"
+                        AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <LineChart layoutX="14.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0"
+                          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <xAxis>
+                     <CategoryAxis side="BOTTOM"/>
+                  </xAxis>
+                  <yAxis>
+                     <NumberAxis side="LEFT"/>
+                  </yAxis>
+               </LineChart>
             </AnchorPane>
-         </left>
-         <top>
-            <AnchorPane prefHeight="114.0" prefWidth="600.0" styleClass="banner" stylesheets="@style.css" BorderPane.alignment="CENTER">
-               <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="45.0" prefWidth="220.0" styleClass="header" text="Pharmacy Manager">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Hyperlink fx:id="dashLink" alignment="CENTER" layoutX="75.0" layoutY="78.0" stylesheets="@style.css" text="Dashboard" />
-                  <Hyperlink fx:id="medLink" alignment="CENTER" layoutX="259.0" layoutY="78.0" stylesheets="@style.css" text="Add Medicine" />
-                  <Hyperlink fx:id="buyLink" alignment="CENTER" layoutX="428.0" layoutY="78.0" stylesheets="@style.css" text="Purchace Medicine" />
-               </children>
+            <AnchorPane fx:id="MedicineFields" layoutX="50.0" layoutY="36.0" prefHeight="200.0" prefWidth="200.0"
+                        visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <HBox alignment="CENTER" layoutX="47.0" layoutY="80.0" prefHeight="100.0" prefWidth="200.0"
+                     AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                     AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="147.0" spacing="25.0">
+                     <Label alignment="CENTER" styleClass="text" text="Medicine ID: "/>
+                     <Label alignment="CENTER" styleClass="text" text="Brand Name:"/>
+                     <Label alignment="CENTER" prefHeight="23.0" prefWidth="94.0" styleClass="text"
+                            text="Product Name:"/>
+                     <Label alignment="CENTER" prefHeight="23.0" prefWidth="42.0" styleClass="text"
+                            text="Type:"/>
+                     <Label alignment="CENTER" prefHeight="23.0" prefWidth="49.0" styleClass="text"
+                            text="Status:"/>
+                     <Label alignment="CENTER" prefHeight="23.0" prefWidth="49.0" styleClass="text"
+                            text="Price:"/>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="147.0" spacing="23.0">
+                     <TextField/>
+                     <TextField/>
+                     <TextField/>
+                     <ChoiceBox prefWidth="150.0"/>
+                     <ChoiceBox prefWidth="150.0"/>
+                     <TextField promptText="\$0.00"/>
+                  </VBox>
+               </HBox>
             </AnchorPane>
-         </top>
-         <right>
-            <AnchorPane fx:id="Rightbox" prefHeight="200.0" prefWidth="300.0" styleClass="boxright" stylesheets="@style.css" BorderPane.alignment="CENTER">
-               <children>
-                  <SplitPane fx:id="DashboardData" dividerPositions="0.33, 0.66" layoutX="38.0" layoutY="36.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="boxright" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                           <children>
-                              <Label alignment="CENTER" layoutX="14.0" layoutY="32.0" styleClass="text" stylesheets="@style.css" text="Available Medicines:" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="29.0" />
-                              <Label alignment="CENTER" layoutX="207.0" layoutY="29.0" prefHeight="29.0" prefWidth="69.0" styleClass="number" text="0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="29.0" />
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                           <children>
-                              <Label alignment="CENTER" layoutX="208.0" layoutY="28.0" prefHeight="26.0" prefWidth="68.0" styleClass="number" text="0.00" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="29.0" />
-                              <Label alignment="CENTER" layoutX="16.0" layoutY="35.0" styleClass="text" stylesheets="@style.css" text="Total Income" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="29.0" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                           <children>
-                              <Label alignment="CENTER" layoutX="213.0" layoutY="28.0" styleClass="number" text="0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="29.0" />
-                              <Label alignment="CENTER" layoutX="15.0" layoutY="31.0" styleClass="text" stylesheets="@style.css" text="Available Medicines:" AnchorPane.bottomAnchor="29.0" AnchorPane.topAnchor="29.0" />
-                           </children>
-                        </AnchorPane>
-                    </items>
-                  </SplitPane>
-                  <AnchorPane fx:id="MedicineTable" layoutX="3.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <TableView layoutX="59.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <columns>
-                            <TableColumn prefWidth="41.0" text="ID" />
-                            <TableColumn minWidth="9.0" prefWidth="76.0" text="Name" />
-                              <TableColumn prefWidth="89.0" text="Product Name" />
-                              <TableColumn prefWidth="42.0" text="Type" />
-                              <TableColumn prefWidth="45.0" text="Price" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane fx:id="buyPane" layoutX="50.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <HBox layoutX="47.0" layoutY="-20.0" maxHeight="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="147.0" spacing="8.0">
-                                 <children>
-                                    <Label alignment="CENTER" styleClass="text" text="Type:" />
-                                    <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" styleClass="text" text="Medicine ID:" />
-                                    <Label alignment="CENTER" layoutX="10.0" layoutY="33.0" styleClass="text" text="Brand:" />
-                                    <Label alignment="CENTER" layoutX="10.0" layoutY="56.0" styleClass="text" text="Product Name:" />
-                                    <Label alignment="CENTER" layoutX="10.0" layoutY="79.0" styleClass="text" text="Quantity:" />
-                                    <Label alignment="CENTER" layoutX="56.0" layoutY="185.0" styleClass="text" text="Total:" />
-                                    <Label alignment="CENTER" layoutX="66.0" layoutY="196.0" styleClass="text" text="Amount:" />
-                                    <Label alignment="CENTER" layoutX="58.0" layoutY="208.0" styleClass="text" text="Balance:" />
-                                    <Button fx:id="cartButton" mnemonicParsing="false" text="Add To Cart" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="147.0" spacing="8.0">
-                                 <children>
-                                    <ChoiceBox maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
-                                    <ChoiceBox layoutX="10.0" layoutY="138.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
-                                    <ChoiceBox layoutX="10.0" layoutY="150.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
-                                    <ChoiceBox layoutX="10.0" layoutY="163.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
-                                    <TextField maxHeight="23.0" minHeight="23.0" prefHeight="23.0" />
-                                    <Label alignment="CENTER" styleClass="text" text="\$0.00" />
-                                    <TextField layoutX="10.0" layoutY="176.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" />
-                                    <Label alignment="CENTER" layoutX="66.0" layoutY="189.0" styleClass="text" text="\$0.00" />
-                                    <Button fx:id="buyButton" mnemonicParsing="false" text="Pay" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </AnchorPane>
-               </children></AnchorPane>
-         </right>
-      </BorderPane>
-   </children>
+            <AnchorPane fx:id="buyTable" layoutX="50.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0"
+                        visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css"
+                          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                          AnchorPane.topAnchor="0.0">
+                  <columns>
+                     <TableColumn prefWidth="41.0" text="ID"/>
+                     <TableColumn minWidth="9.0" prefWidth="76.0" text="Name"/>
+                     <TableColumn prefWidth="89.0" text="Product Name"/>
+                     <TableColumn prefWidth="42.0" text="Type"/>
+                     <TableColumn prefWidth="45.0" text="Price"/>
+                  </columns>
+               </TableView>
+            </AnchorPane>
+         </AnchorPane>
+      </left>
+      <top>
+         <AnchorPane prefHeight="114.0" prefWidth="600.0" styleClass="banner" stylesheets="@style.css"
+                     BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" layoutX="7.0" layoutY="6.0" prefHeight="45.0" prefWidth="220.0"
+                   styleClass="header" text="Pharmacy Manager">
+               <font>
+                  <Font size="24.0"/>
+               </font>
+            </Label>
+            <Hyperlink fx:id="dashLink" alignment="CENTER" layoutX="75.0" layoutY="78.0" stylesheets="@style.css"
+                       text="Dashboard"/>
+            <Hyperlink fx:id="medLink" alignment="CENTER" layoutX="259.0" layoutY="78.0" stylesheets="@style.css"
+                       text="Add Medicine"/>
+            <Hyperlink fx:id="buyLink" alignment="CENTER" layoutX="428.0" layoutY="78.0" stylesheets="@style.css"
+                       text="Purchace Medicine"/>
+         </AnchorPane>
+      </top>
+      <right>
+         <AnchorPane fx:id="Rightbox" prefHeight="200.0" prefWidth="300.0" styleClass="boxright"
+                     stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <SplitPane fx:id="DashboardData" dividerPositions="0.33, 0.66" layoutX="38.0" layoutY="36.0"
+                       orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="boxright"
+                       stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0"
+                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="32.0" styleClass="text"
+                         stylesheets="@style.css" text="Available Medicines:" AnchorPane.bottomAnchor="29.0"
+                         AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="156.0"
+                         AnchorPane.topAnchor="29.0"/>
+                  <Label alignment="CENTER" layoutX="207.0" layoutY="29.0" prefHeight="29.0" prefWidth="69.0"
+                         styleClass="number" text="0" AnchorPane.bottomAnchor="29.0"
+                         AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="11.0"
+                         AnchorPane.topAnchor="29.0"/>
+               </AnchorPane>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                  <Label alignment="CENTER" layoutX="208.0" layoutY="28.0" prefHeight="26.0" prefWidth="68.0"
+                         styleClass="number" text="0.00" AnchorPane.bottomAnchor="29.0"
+                         AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="11.0"
+                         AnchorPane.topAnchor="29.0"/>
+                  <Label alignment="CENTER" layoutX="16.0" layoutY="35.0" styleClass="text"
+                         stylesheets="@style.css" text="Total Income" AnchorPane.bottomAnchor="29.0"
+                         AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="156.0"
+                         AnchorPane.topAnchor="29.0"/>
+               </AnchorPane>
+               <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <Label alignment="CENTER" layoutX="213.0" layoutY="28.0" styleClass="number" text="0"
+                         AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="207.0"
+                         AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="29.0"/>
+                  <Label alignment="CENTER" layoutX="15.0" layoutY="31.0" styleClass="text"
+                         stylesheets="@style.css" text="Available Medicines:" AnchorPane.bottomAnchor="29.0"
+                         AnchorPane.topAnchor="29.0"/>
+               </AnchorPane>
+            </SplitPane>
+            <AnchorPane fx:id="MedicineTable" layoutX="3.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0"
+                        visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <TableView layoutX="59.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0"
+                          stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columns>
+                     <TableColumn prefWidth="41.0" text="ID"/>
+                     <TableColumn minWidth="9.0" prefWidth="76.0" text="Name"/>
+                     <TableColumn prefWidth="89.0" text="Product Name"/>
+                     <TableColumn prefWidth="42.0" text="Type"/>
+                     <TableColumn prefWidth="45.0" text="Price"/>
+                  </columns>
+               </TableView>
+            </AnchorPane>
+            <AnchorPane fx:id="buyPane" layoutX="50.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0"
+                        visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <HBox layoutX="47.0" layoutY="-20.0" maxHeight="1.7976931348623157E308" prefHeight="100.0"
+                     prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                     AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="147.0" spacing="8.0">
+                     <Label alignment="CENTER" styleClass="text" text="Type:"/>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" styleClass="text"
+                            text="Medicine ID:"/>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="33.0" styleClass="text"
+                            text="Brand:"/>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="56.0" styleClass="text"
+                            text="Product Name:"/>
+                     <Label alignment="CENTER" layoutX="10.0" layoutY="79.0" styleClass="text"
+                            text="Quantity:"/>
+                     <Label alignment="CENTER" layoutX="56.0" layoutY="185.0" styleClass="text"
+                            text="Total:"/>
+                     <Label alignment="CENTER" layoutX="66.0" layoutY="196.0" styleClass="text"
+                            text="Amount:"/>
+                     <Label alignment="CENTER" layoutX="58.0" layoutY="208.0" styleClass="text"
+                            text="Balance:"/>
+                     <Button fx:id="cartButton" mnemonicParsing="false" text="Add To Cart"/>
+                  </VBox>
+                  <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="147.0"
+                        spacing="8.0">
+                     <ChoiceBox maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0"/>
+                     <ChoiceBox layoutX="10.0" layoutY="138.0" maxHeight="23.0" minHeight="23.0"
+                                prefHeight="23.0" prefWidth="150.0"/>
+                     <ChoiceBox layoutX="10.0" layoutY="150.0" maxHeight="23.0" minHeight="23.0"
+                                prefHeight="23.0" prefWidth="150.0"/>
+                     <ChoiceBox layoutX="10.0" layoutY="163.0" maxHeight="23.0" minHeight="23.0"
+                                prefHeight="23.0" prefWidth="150.0"/>
+                     <TextField maxHeight="23.0" minHeight="23.0" prefHeight="23.0"/>
+                     <Label alignment="CENTER" styleClass="text" text="\$0.00"/>
+                     <TextField layoutX="10.0" layoutY="176.0" maxHeight="23.0" minHeight="23.0"
+                                prefHeight="23.0"/>
+                     <Label alignment="CENTER" layoutX="66.0" layoutY="189.0" styleClass="text"
+                            text="\$0.00"/>
+                     <Button fx:id="buyButton" mnemonicParsing="false" text="Pay"/>
+                  </VBox>
+               </HBox>
+            </AnchorPane>
+         </AnchorPane>
+      </right>
+   </BorderPane>
 </StackPane>
