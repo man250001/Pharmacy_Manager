@@ -1,12 +1,16 @@
 package com.example.pharmacy_manager;
 
 import javafx.application.Platform;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.Chart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -50,7 +54,7 @@ public class HomeMenuController implements Initializable {
     private Button medAdd, medUpdate, medDelete, medClear;
 
     @FXML
-    private ChoiceBox<?> typeAdd, statusAdd;
+    private ChoiceBox<String> typeAdd, statusAdd;
 
     @FXML
     private TableView<?> tableViewAdd;
@@ -64,31 +68,68 @@ public class HomeMenuController implements Initializable {
     private LineChart<?, ?> dashchart;
     //endregion
 
+    //region Lists
+    ObservableList<String> typeList = FXCollections.observableArrayList("Pain Relievers", "Antibiotics", "Cardiovascular", "Metabolic", "Respiratory");
+
+    ObservableList<String> statusList = FXCollections.observableArrayList("Available", "Unavailable");
+    //endregion
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        typeAdd.setItems(typeList);
+        statusAdd.setItems(statusList);
+
         dashLink.setOnAction(event -> Platform.runLater(() -> {
             PaneDisabler();
-            DashboardChart.setVisible(true);
-            DashboardData.setVisible(true);
+            CompletelyEnable(DashboardChart);
+            CompletelyEnable(DashboardData);
         }));
         medLink.setOnAction(event -> Platform.runLater(() -> {
             PaneDisabler();
-            MedicineFields.setVisible(true);
-            MedicineTable.setVisible(true);
+            CompletelyEnable(MedicineFields);
+            CompletelyEnable(MedicineTable);
         }));
         buyLink.setOnAction(event -> Platform.runLater(() -> {
             PaneDisabler();
-            buyPane.setVisible(true);
-            buyTable.setVisible(true);
+            CompletelyEnable(buyPane);
+            CompletelyEnable(buyTable);
         }));
     }
 
     public void PaneDisabler() {
-        buyPane.setVisible(false);
-        buyTable.setVisible(false);
-        DashboardChart.setVisible(false);
-        DashboardData.setVisible(false);
-        MedicineFields.setVisible(false);
-        MedicineTable.setVisible(false);
+        CompletelyDisable(buyPane);
+        CompletelyDisable(buyTable);
+        CompletelyDisable(DashboardChart);
+        CompletelyDisable(DashboardData);
+        CompletelyDisable(MedicineFields);
+        CompletelyDisable(MedicineTable);
     }
+
+    //region Disable and Enable Methods
+    //CompletelyDisable Pane Object
+    public void CompletelyDisable(Pane pane) {
+        pane.setDisable(true);
+        pane.setVisible(false);
+    }
+
+    //Overloaded method
+    //Reason: SplitPane is not a subclass of Pane
+    public void CompletelyDisable(SplitPane pane) {
+        pane.setDisable(true);
+        pane.setVisible(false);
+    }
+
+    //CompletelyEnable Pane Object
+    public void CompletelyEnable(Pane pane) {
+        pane.setDisable(false);
+        pane.setVisible(true);
+    }
+
+    //Overloaded method
+    //Reason: SplitPane is not a subclass of Pane
+    public void CompletelyEnable(SplitPane pane) {
+        pane.setDisable(false);
+        pane.setVisible(true);
+    }
+    //endregion
 }
