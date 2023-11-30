@@ -24,6 +24,7 @@ public class DBUtils {
                 stage.setTitle(_title);
                 stage.setResizable(false);
                 stage.setScene(new Scene(root));
+                stage.centerOnScreen();
                 stage.show();
             });
         } catch (IOException | RuntimeException e) {
