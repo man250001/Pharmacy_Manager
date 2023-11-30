@@ -92,18 +92,18 @@
       </top>
       <right>
          <AnchorPane fx:id="Rightbox" prefHeight="200.0" prefWidth="360.0" styleClass="boxright" stylesheets="@style.css" BorderPane.alignment="CENTER">
-            <SplitPane fx:id="DashboardData" dividerPositions="0.33, 0.66" layoutX="38.0" layoutY="36.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="boxright" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <SplitPane fx:id="DashboardData" dividerPositions="0.3298429319371728, 0.6596858638743456" layoutX="38.0" layoutY="36.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="boxright" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                   <Label alignment="CENTER" layoutX="14.0" layoutY="49.0" maxHeight="65.0" minHeight="26.0" prefHeight="26.0" prefWidth="114.0" styleClass="text" stylesheets="@style.css" text="Available Medicines:" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="218.0" AnchorPane.topAnchor="49.0" />
                   <Label fx:id="dashmednum" alignment="CENTER" layoutX="204.0" layoutY="48.0" prefHeight="29.0" prefWidth="128.0" styleClass="number" text="0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="48.0" />
                </AnchorPane>
-               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="134.0" prefWidth="346.0">
                   <Label fx:id="dashincome" alignment="CENTER" layoutX="204.0" layoutY="46.0" prefHeight="29.0" prefWidth="128.0" styleClass="number" text="0.00" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="46.0" />
                   <Label alignment="CENTER" layoutX="14.0" layoutY="47.0" maxHeight="62.0" minHeight="26.0" prefHeight="26.0" prefWidth="114.0" styleClass="text" stylesheets="@style.css" text="Total Income" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="225.0" AnchorPane.topAnchor="47.0" />
                </AnchorPane>
-               <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="200.0">
                   <Label fx:id="dashcustom" alignment="CENTER" layoutX="204.0" layoutY="50.0" prefHeight="29.0" prefWidth="128.0" styleClass="number" text="0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0" />
-                  <Label alignment="CENTER" layoutX="14.0" layoutY="51.0" maxHeight="28.0" minHeight="26.0" prefHeight="26.0" prefWidth="114.0" styleClass="text" stylesheets="@style.css" text="Total Customers:" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="51.0" />
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="51.0" maxHeight="26.0" minHeight="26.0" prefHeight="26.0" prefWidth="114.0" styleClass="text" stylesheets="@style.css" text="Total Customers:" AnchorPane.bottomAnchor="50.0" AnchorPane.topAnchor="51.0" />
                </AnchorPane>
             </SplitPane>
             <AnchorPane fx:id="MedicineTable" layoutX="3.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
