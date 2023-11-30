@@ -1,6 +1,7 @@
 module com.example.pharmacy_manager {
-    requires javafx.controls;
-    requires javafx.fxml;
+    requires transitive javafx.base;
+    requires transitive javafx.controls;
+    requires transitive javafx.fxml;
     requires java.sql;
 
 
