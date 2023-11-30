@@ -3,11 +3,12 @@ package com.example.pharmacy_manager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.SplitPane;
+import javafx.scene.chart.Chart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,13 +27,38 @@ public class HomeMenuController implements Initializable {
 
     //region Buy Medicine Related
     @FXML
+    private ChoiceBox<?> typeBuy, medIdBuy, brandNameBuy, prodNameBuy;
+
+    @FXML
+    private TextField quantityBuy, amountBuy;
+
+    @FXML
+    private Label totalBuy, balanceBuy;
+
+    @FXML
     private Button buyButton, cartButton;
+
+    @FXML
+    private TableView<?> tableViewBuy;
     //endregion
 
     //region Add Medicine Related
+    @FXML
+    private Field medIdAdd, brandNameAdd, prodNameAdd, priceAdd;
+
+    @FXML
+    private ChoiceBox<?> typeAdd, statusAdd;
+
+    @FXML
+    private TableView<?> tableViewAdd;
     //endregion
 
     //region Dashboard Related
+    @FXML
+    private Label dashmednum, dashincome, dashcustom;
+
+    @FXML
+    private LineChart<?, ?> dashchart;
     //endregion
 
     @Override
