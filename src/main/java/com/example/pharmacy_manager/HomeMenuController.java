@@ -47,6 +47,9 @@ public class HomeMenuController implements Initializable {
     private Field medIdAdd, brandNameAdd, prodNameAdd, priceAdd;
 
     @FXML
+    private Button medAdd, medUpdate, medDelete, medClear;
+
+    @FXML
     private ChoiceBox<?> typeAdd, statusAdd;
 
     @FXML
