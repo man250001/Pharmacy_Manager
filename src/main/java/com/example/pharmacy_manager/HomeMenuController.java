@@ -44,7 +44,7 @@ public class HomeMenuController implements Initializable {
 
     //region Add Medicine Related
     @FXML
-    private Field medIdAdd, brandNameAdd, prodNameAdd, priceAdd;
+    private TextField medIdAdd, brandNameAdd, prodNameAdd, priceAdd;
 
     @FXML
     private Button medAdd, medUpdate, medDelete, medClear;
