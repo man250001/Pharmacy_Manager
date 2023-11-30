@@ -28,13 +28,13 @@ public class HomeMenuController implements Initializable {
 
     //region Buy Medicine Related
     @FXML
-    private ChoiceBox<?> typeBuy, medIdBuy, brandNameBuy, prodNameBuy;
+    private ChoiceBox<?> typeBuy, medIdBuy, brandBuy, prodNameBuy;
 
     @FXML
     private TextField quantityBuy, amountBuy;
 
     @FXML
-    private Label totalBuy, balanceBuy;
+    private Label priceBuy, balanceBuy;
 
     @FXML
     private Button buyButton, cartButton;
@@ -62,13 +62,13 @@ public class HomeMenuController implements Initializable {
     private Label dashmednum, dashincome, dashcustom;
 
     @FXML
-    private LineChart<?, ?> dashchart;
+    private LineChart<?, ?> dashLineChart;
     //endregion
 
     //region Lists
-    ObservableList<String> typeList = FXCollections.observableArrayList("Pain Relievers", "Antibiotics", "Cardiovascular", "Metabolic", "Respiratory");
+    final ObservableList<String> typeList = FXCollections.observableArrayList("Pain Relievers", "Antibiotics", "Cardiovascular", "Metabolic", "Respiratory");
 
-    ObservableList<String> statusList = FXCollections.observableArrayList("Available", "Unavailable");
+    final ObservableList<String> statusList = FXCollections.observableArrayList("Available", "Unavailable");
     //endregion
 
     @Override
