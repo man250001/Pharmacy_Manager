@@ -83,7 +83,7 @@
             </Label>
             <Hyperlink fx:id="dashLink" alignment="CENTER" layoutX="130.0" layoutY="75.0" stylesheets="@style.css" text="Dashboard" />
             <Hyperlink fx:id="medLink" alignment="CENTER" layoutX="314.0" layoutY="75.0" stylesheets="@style.css" text="Add Medicine" />
-            <Hyperlink fx:id="buyLink" alignment="CENTER" layoutX="483.0" layoutY="75.0" stylesheets="@style.css" text="Purchace Medicine" />
+            <Hyperlink fx:id="buyLink" alignment="CENTER" layoutX="483.0" layoutY="75.0" stylesheets="@style.css" text="Purchase Medicine" />
          </AnchorPane>
       </top>
       <right>
