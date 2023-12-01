@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class HomeMenuController implements Initializable {
     //region Header Related
     @FXML
-    private Hyperlink dashLink, medLink, buyLink;
+    private Hyperlink dashLink, medLink, buyLink, logOut;
 
     @FXML
     private AnchorPane Leftbox, MedicineFields, MedicineTable, Rightbox, buyPane, buyTable, DashboardChart;
@@ -91,6 +91,7 @@ public class HomeMenuController implements Initializable {
             CompletelyEnable(buyPane);
             CompletelyEnable(buyTable);
         }));
+        logOut.setOnAction(event -> Platform.runLater(() -> DBUtils.changeScene(event, "Login.fxml", "Login")));
     }
 
     public void PaneDisabler() {
