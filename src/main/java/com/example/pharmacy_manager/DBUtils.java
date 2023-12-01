@@ -66,4 +66,15 @@ public class DBUtils {
             throw new RuntimeException(e);
         }
     }
+
+    public static void removeMedicine(ActionEvent event, int medId) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password");
+             PreparedStatement psRemoveMedicine = conn.prepareStatement("DELETE FROM medicine WHERE medicineId = ?")) {
+
+            psRemoveMedicine.setInt(1, medId);
+            psRemoveMedicine.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

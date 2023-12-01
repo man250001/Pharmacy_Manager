@@ -99,6 +99,14 @@ public class HomeMenuController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+        medClear.setOnAction(event -> Platform.runLater(this::ClearAllFields));
+        medDelete.setOnAction(event -> {
+            try {
+                DBUtils.removeMedicine(event, Integer.parseInt(medIdAdd.getText()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     public void PaneDisabler() {
@@ -108,6 +116,23 @@ public class HomeMenuController implements Initializable {
         CompletelyDisable(DashboardData);
         CompletelyDisable(MedicineFields);
         CompletelyDisable(MedicineTable);
+    }
+
+    public void ClearAllFields() {
+        medIdAdd.clear();
+        brandNameAdd.clear();
+        prodNameAdd.clear();
+        priceAdd.clear();
+        quantityBuy.clear();
+        amountBuy.clear();
+        priceBuy.setText("0.00");
+        balanceBuy.setText("0.00");
+        typeBuy.setValue(null);
+        medIdBuy.setValue(null);
+        brandBuy.setValue(null);
+        prodNameBuy.setValue(null);
+        typeAdd.setValue(null);
+        statusAdd.setValue(null);
     }
 
     //region Disable and Enable Methods
