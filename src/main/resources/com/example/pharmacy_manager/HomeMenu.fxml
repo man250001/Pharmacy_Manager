@@ -41,10 +41,9 @@
                      <Label alignment="CENTER" prefHeight="23.0" prefWidth="42.0" styleClass="text" text="Type:" />
                      <Label alignment="CENTER" prefHeight="23.0" prefWidth="49.0" styleClass="text" text="Status:" />
                      <Label alignment="CENTER" prefHeight="23.0" prefWidth="49.0" styleClass="text" text="Price:" />
-                     <VBox alignment="CENTER" fillWidth="false" maxWidth="-Infinity" minHeight="-Infinity"
-                           minWidth="-Infinity" prefHeight="73.0" prefWidth="58.0" spacing="25.0">
-                        <Button fx:id="medAdd" mnemonicParsing="false" text="Add"/>
-                        <Button fx:id="medClear" mnemonicParsing="false" text="Clear"/>
+                     <VBox alignment="CENTER" fillWidth="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="58.0" spacing="25.0">
+                        <Button fx:id="medAdd" mnemonicParsing="false" text="Add" />
+                        <Button fx:id="medClear" mnemonicParsing="false" text="Clear" />
                      </VBox>
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="180.0" spacing="25.0">
@@ -54,10 +53,9 @@
                      <ChoiceBox fx:id="typeAdd" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
                      <ChoiceBox fx:id="statusAdd" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
                      <TextField fx:id="priceAdd" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" promptText="\$0.00" />
-                     <VBox alignment="CENTER" fillWidth="false" maxWidth="-Infinity" minHeight="-Infinity"
-                           minWidth="-Infinity" prefHeight="73.0" prefWidth="58.0" spacing="25.0">
-                        <Button fx:id="medDelete" mnemonicParsing="false" text="Delete"/>
-                        <Button fx:id="medUpdate" mnemonicParsing="false" text="Update"/>
+                     <VBox alignment="CENTER" fillWidth="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="73.0" prefWidth="58.0" spacing="25.0">
+                        <Button fx:id="medDelete" mnemonicParsing="false" text="Delete" />
+                        <Button fx:id="medUpdate" mnemonicParsing="false" text="Update" />
                      </VBox>
                   </VBox>
                </HBox>
@@ -85,7 +83,8 @@
             </Label>
             <Hyperlink fx:id="dashLink" alignment="CENTER" layoutX="130.0" layoutY="75.0" stylesheets="@style.css" text="Dashboard" />
             <Hyperlink fx:id="medLink" alignment="CENTER" layoutX="314.0" layoutY="75.0" stylesheets="@style.css" text="Add Medicine" />
-            <Hyperlink fx:id="buyLink" alignment="CENTER" layoutX="483.0" layoutY="75.0" stylesheets="@style.css" text="Purchace Medicine" />
+            <Hyperlink fx:id="buyLink" alignment="CENTER" layoutX="483.0" layoutY="75.0" stylesheets="@style.css" text="Purchase Medicine" />
+            <Hyperlink fx:id="logOut" layoutX="14.0" layoutY="51.0" stylesheets="@style.css" text="Log Out" />
          </AnchorPane>
       </top>
       <right>
@@ -127,9 +126,8 @@
                      <Label alignment="CENTER" layoutX="56.0" layoutY="185.0" styleClass="text" text="Total:" />
                      <Label alignment="CENTER" layoutX="66.0" layoutY="196.0" styleClass="text" text="Amount:" />
                      <Label alignment="CENTER" layoutX="58.0" layoutY="208.0" styleClass="text" text="Balance:" />
-                     <VBox alignment="CENTER" fillWidth="false" maxWidth="-Infinity" minWidth="-Infinity"
-                           prefHeight="23.0" prefWidth="110.0">
-                        <Button fx:id="cartButton" mnemonicParsing="false" text="Add To Cart"/>
+                     <VBox alignment="CENTER" fillWidth="false" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="110.0">
+                        <Button fx:id="cartButton" mnemonicParsing="false" text="Add To Cart" />
                      </VBox>
                   </VBox>
                   <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="200.0" prefWidth="180.0" spacing="18.0">
@@ -142,7 +140,7 @@
                      <TextField fx:id="amountBuy" layoutX="10.0" layoutY="176.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" />
                      <Label fx:id="balanceBuy" alignment="CENTER" layoutX="66.0" layoutY="189.0" styleClass="text" text="\$0.00" />
                      <VBox alignment="CENTER" fillWidth="false" prefHeight="23.0" prefWidth="63.0">
-                        <Button fx:id="buyButton" mnemonicParsing="false" text="Pay"/>
+                        <Button fx:id="buyButton" mnemonicParsing="false" text="Pay" />
                      </VBox>
                   </VBox>
                </HBox>

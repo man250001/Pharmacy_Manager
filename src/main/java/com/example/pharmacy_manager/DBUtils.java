@@ -7,9 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.sql.*;
 
 import java.io.IOException;
+import java.sql.*;
 
 @SuppressWarnings("unused")
 public class DBUtils {
@@ -24,6 +24,7 @@ public class DBUtils {
                 stage.setTitle(_title);
                 stage.setResizable(false);
                 stage.setScene(new Scene(root));
+                stage.centerOnScreen();
                 stage.show();
             });
         } catch (IOException | RuntimeException e) {
@@ -32,27 +33,17 @@ public class DBUtils {
     }
 
     public static boolean logInUser(ActionEvent event, String username, String pwd) {
-        try {
-            Connection conn;
-            PreparedStatement psCheckIfUserExists;
-            ResultSet resultSet;
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password");
+             PreparedStatement psCheckIfUserExists = conn.prepareStatement("SELECT * FROM admin WHERE username = ?")) {
 
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password");
-            psCheckIfUserExists = conn.prepareStatement("Select * from admin Where username = ?");
             psCheckIfUserExists.setString(1, username);
-            resultSet = psCheckIfUserExists.executeQuery();
-
-            while (resultSet.next()) {
-                if (resultSet.getString("password").equals(pwd)) {
-                    resultSet.close();
-                    psCheckIfUserExists.close();
-                    conn.close();
-                    return true;
+            try (ResultSet resultSet = psCheckIfUserExists.executeQuery()) {
+                while (resultSet.next()) {
+                    if (resultSet.getString("password").equals(pwd)) {
+                        return true;
+                    }
                 }
             }
-            resultSet.close();
-            psCheckIfUserExists.close();
-            conn.close();
             return false;
         } catch (SQLException e) {
             throw new RuntimeException(e);
