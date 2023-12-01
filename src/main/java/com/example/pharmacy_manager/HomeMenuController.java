@@ -3,6 +3,7 @@ package com.example.pharmacy_manager;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -92,6 +93,13 @@ public class HomeMenuController implements Initializable {
             CompletelyEnable(buyTable);
         }));
         logOut.setOnAction(event -> Platform.runLater(() -> DBUtils.changeScene(event, "Login.fxml", "Login")));
+        medAdd.setOnAction(event -> {
+            try {
+                DBUtils.addMedicine(event, Integer.parseInt(medIdAdd.getText()), brandNameAdd.getText(), prodNameAdd.getText(), typeAdd.getValue(), statusAdd.getValue(), Double.parseDouble(priceAdd.getText()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     public void PaneDisabler() {
@@ -130,4 +138,9 @@ public class HomeMenuController implements Initializable {
         pane.setVisible(true);
     }
     //endregion
+
+    //region Add Medicine Methods
+    //endregion
+
+
 }
