@@ -1,6 +1,9 @@
 package com.example.pharmacy_manager;
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -51,10 +54,19 @@ public class HomeMenuController implements Initializable {
     private Button medAdd, medUpdate, medDelete, medClear;
 
     @FXML
+    private TableColumn<Medicine, String> nameCol, prodCol, typeCol, statusCol;
+
+    @FXML
     private ChoiceBox<String> typeAdd, statusAdd;
 
     @FXML
-    private TableView<?> tableViewAdd;
+    private TableView<Medicine> tableViewAdd;
+
+    @FXML
+    private TableColumn<Medicine, Integer> idCol;
+
+    @FXML
+    private TableColumn<Medicine, Double> priceCol;
     //endregion
 
     //region Dashboard Related
@@ -69,12 +81,22 @@ public class HomeMenuController implements Initializable {
     final ObservableList<String> typeList = FXCollections.observableArrayList("Pain Relievers", "Antibiotics", "Cardiovascular", "Metabolic", "Respiratory");
 
     final ObservableList<String> statusList = FXCollections.observableArrayList("Available", "Unavailable");
+    ObservableList<Medicine> medList = FXCollections.observableArrayList();
     //endregion
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         typeAdd.setItems(typeList);
         statusAdd.setItems(statusList);
+        medList = FXCollections.observableList(DBUtils.getMedicine(null, 0));
+        tableViewAdd.setItems(medList);
+        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
+        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBrand()));
+        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProductName()));
+        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getType()));
+        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
+        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getPrice()).asObject());
+        tableViewAdd.getColumns().setAll(idCol, nameCol, prodCol, typeCol, statusCol, priceCol);
 
         dashLink.setOnAction(event -> Platform.runLater(() -> {
             PaneDisabler();
