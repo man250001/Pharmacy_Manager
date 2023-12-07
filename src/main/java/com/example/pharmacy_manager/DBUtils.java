@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 public class DBUtils {
@@ -73,6 +74,21 @@ public class DBUtils {
 
             psRemoveMedicine.setInt(1, medId);
             psRemoveMedicine.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Medicine> getMedicine(ActionEvent event, int medId) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password")){
+             PreparedStatement psGetMedicine = conn.prepareStatement("SELECT * FROM medicine");
+                ResultSet rs = psGetMedicine.executeQuery();
+
+                ArrayList<Medicine> medicineList = new ArrayList<>();
+                while (rs.next()) {
+                    medicineList.add(new Medicine(rs.getInt("id"), rs.getInt("medicineId"), rs.getString("brand"), rs.getString("productName"), rs.getString("type"), rs.getString("status"), rs.getDouble("price"), rs.getString("date")));
+                }
+                return medicineList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
