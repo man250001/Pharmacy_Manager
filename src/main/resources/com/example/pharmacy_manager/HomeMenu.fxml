@@ -106,12 +106,12 @@
             <AnchorPane fx:id="MedicineTable" layoutX="3.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <TableView fx:id="tableViewAdd" layoutX="59.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <columns>
-                     <TableColumn prefWidth="27.0" text="ID" />
-                     <TableColumn minWidth="9.0" prefWidth="70.0" text="Name" />
-                     <TableColumn prefWidth="96.0" text="Product Name" />
-                     <TableColumn prefWidth="48.0" text="Type" />
-                     <TableColumn prefWidth="44.0" text="Price" />
-                     <TableColumn prefWidth="64.0" text="Status" />
+                     <TableColumn fx:id="idCol" prefWidth="27.0" text="ID" />
+                     <TableColumn fx:id="nameCol" minWidth="9.0" prefWidth="70.0" text="Name" />
+                     <TableColumn fx:id="prodCol" prefWidth="96.0" text="Product Name" />
+                     <TableColumn fx:id="typeCol" prefWidth="48.0" text="Type" />
+                     <TableColumn fx:id="priceCol" prefWidth="44.0" text="Price" />
+                     <TableColumn fx:id="statusCol" prefWidth="64.0" text="Status" />
                   </columns>
                </TableView>
             </AnchorPane>

@@ -1,6 +1,9 @@
 package com.example.pharmacy_manager;
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +16,7 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@SuppressWarnings({"unused", "SpellCheckingInspection"})
+@SuppressWarnings({"unused", "SpellCheckingInspection", "unchecked"})
 public class HomeMenuController implements Initializable {
     //region Header Related
     @FXML
@@ -51,10 +54,19 @@ public class HomeMenuController implements Initializable {
     private Button medAdd, medUpdate, medDelete, medClear;
 
     @FXML
+    private TableColumn<Medicine, String> nameCol, prodCol, typeCol, statusCol;
+
+    @FXML
     private ChoiceBox<String> typeAdd, statusAdd;
 
     @FXML
-    private TableView<?> tableViewAdd;
+    private TableView<Medicine> tableViewAdd;
+
+    @FXML
+    private TableColumn<Medicine, Integer> idCol;
+
+    @FXML
+    private TableColumn<Medicine, Double> priceCol;
     //endregion
 
     //region Dashboard Related
@@ -69,12 +81,22 @@ public class HomeMenuController implements Initializable {
     final ObservableList<String> typeList = FXCollections.observableArrayList("Pain Relievers", "Antibiotics", "Cardiovascular", "Metabolic", "Respiratory");
 
     final ObservableList<String> statusList = FXCollections.observableArrayList("Available", "Unavailable");
+    ObservableList<Medicine> medList = FXCollections.observableArrayList();
     //endregion
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         typeAdd.setItems(typeList);
         statusAdd.setItems(statusList);
+        medList = FXCollections.observableList(DBUtils.getMedicine(null, 0));
+        tableViewAdd.setItems(medList);
+        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().id()).asObject());
+        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().brand()));
+        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().productName()));
+        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type()));
+        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().status()));
+        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().price()).asObject());
+        tableViewAdd.getColumns().setAll(idCol, nameCol, prodCol, typeCol, statusCol, priceCol);
 
         dashLink.setOnAction(event -> Platform.runLater(() -> {
             PaneDisabler();
@@ -92,6 +114,30 @@ public class HomeMenuController implements Initializable {
             CompletelyEnable(buyTable);
         }));
         logOut.setOnAction(event -> Platform.runLater(() -> DBUtils.changeScene(event, "Login.fxml", "Login")));
+        medAdd.setOnAction(event -> {
+            try {
+                DBUtils.addMedicine(event, Integer.parseInt(medIdAdd.getText()), brandNameAdd.getText(), prodNameAdd.getText(), typeAdd.getValue(), statusAdd.getValue(), Double.parseDouble(priceAdd.getText()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+        medClear.setOnAction(event -> Platform.runLater(this::ClearAllFields));
+        medDelete.setOnAction(event -> {
+            try {
+                DBUtils.removeMedicine(event, Integer.parseInt(medIdAdd.getText()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+        tableViewAdd.setOnMouseClicked(event -> {
+            Medicine med = tableViewAdd.getSelectionModel().getSelectedItem();
+            medIdAdd.setText(String.valueOf(med.id()));
+            brandNameAdd.setText(med.brand());
+            prodNameAdd.setText(med.productName());
+            typeAdd.setValue(med.type());
+            statusAdd.setValue(med.status());
+            priceAdd.setText(String.valueOf(med.price()));
+        });
     }
 
     public void PaneDisabler() {
@@ -101,6 +147,23 @@ public class HomeMenuController implements Initializable {
         CompletelyDisable(DashboardData);
         CompletelyDisable(MedicineFields);
         CompletelyDisable(MedicineTable);
+    }
+
+    public void ClearAllFields() {
+        medIdAdd.clear();
+        brandNameAdd.clear();
+        prodNameAdd.clear();
+        priceAdd.clear();
+        quantityBuy.clear();
+        amountBuy.clear();
+        priceBuy.setText("0.00");
+        balanceBuy.setText("0.00");
+        typeBuy.setValue(null);
+        medIdBuy.setValue(null);
+        brandBuy.setValue(null);
+        prodNameBuy.setValue(null);
+        typeAdd.setValue(null);
+        statusAdd.setValue(null);
     }
 
     //region Disable and Enable Methods
@@ -130,4 +193,9 @@ public class HomeMenuController implements Initializable {
         pane.setVisible(true);
     }
     //endregion
+
+    //region Add Medicine Methods
+    //endregion
+
+
 }

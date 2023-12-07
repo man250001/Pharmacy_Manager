@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
 @SuppressWarnings("unused")
 public class DBUtils {
@@ -45,6 +46,49 @@ public class DBUtils {
                 }
             }
             return false;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addMedicine(ActionEvent event, int medId, String brandName, String prodName, String type, String status, Double price) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password");
+             PreparedStatement psAddMedicine = conn.prepareStatement("INSERT INTO medicine (medicineId, brand, productName, type, status, price, date) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+
+            psAddMedicine.setInt(1, medId);
+            psAddMedicine.setString(2, brandName);
+            psAddMedicine.setString(3, prodName);
+            psAddMedicine.setString(4, type);
+            psAddMedicine.setString(5, status);
+            psAddMedicine.setDouble(6, price);
+            psAddMedicine.setDate(7, new Date(System.currentTimeMillis()));
+            psAddMedicine.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void removeMedicine(ActionEvent event, int medId) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password");
+             PreparedStatement psRemoveMedicine = conn.prepareStatement("DELETE FROM medicine WHERE medicineId = ?")) {
+
+            psRemoveMedicine.setInt(1, medId);
+            psRemoveMedicine.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ArrayList<Medicine> getMedicine(ActionEvent event, int medId) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password")){
+             PreparedStatement psGetMedicine = conn.prepareStatement("SELECT * FROM medicine");
+                ResultSet rs = psGetMedicine.executeQuery();
+
+                ArrayList<Medicine> medicineList = new ArrayList<>();
+                while (rs.next()) {
+                    medicineList.add(new Medicine(rs.getInt("id"), rs.getInt("medicineId"), rs.getString("brand"), rs.getString("productName"), rs.getString("type"), rs.getString("status"), rs.getDouble("price"), rs.getString("date")));
+                }
+                return medicineList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
