@@ -1,5 +1,6 @@
 package com.example.pharmacy_manager;
 
+@SuppressWarnings("unused")
 public class Medicine {
     private final int id;
     private final int medicineId;
