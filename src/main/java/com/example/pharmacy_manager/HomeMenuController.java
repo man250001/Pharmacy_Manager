@@ -16,7 +16,7 @@ import javafx.scene.layout.Pane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-@SuppressWarnings({"unused", "SpellCheckingInspection"})
+@SuppressWarnings({"unused", "SpellCheckingInspection", "unchecked"})
 public class HomeMenuController implements Initializable {
     //region Header Related
     @FXML
