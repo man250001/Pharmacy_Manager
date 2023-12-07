@@ -129,6 +129,13 @@ public class HomeMenuController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+        medUpdate.setOnAction(event -> {
+            try {
+                DBUtils.updateMedicine(event, Integer.parseInt(medIdAdd.getText()), brandNameAdd.getText(), prodNameAdd.getText(), typeAdd.getValue(), statusAdd.getValue(), Double.parseDouble(priceAdd.getText()));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
         tableViewAdd.setOnMouseClicked(event -> {
             Medicine med = tableViewAdd.getSelectionModel().getSelectedItem();
             medIdAdd.setText(String.valueOf(med.id()));
