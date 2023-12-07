@@ -129,6 +129,15 @@ public class HomeMenuController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+        tableViewAdd.setOnMouseClicked(event -> {
+            Medicine med = tableViewAdd.getSelectionModel().getSelectedItem();
+            medIdAdd.setText(String.valueOf(med.getId()));
+            brandNameAdd.setText(med.getBrand());
+            prodNameAdd.setText(med.getProductName());
+            typeAdd.setValue(med.getType());
+            statusAdd.setValue(med.getStatus());
+            priceAdd.setText(String.valueOf(med.getPrice()));
+        });
     }
 
     public void PaneDisabler() {
