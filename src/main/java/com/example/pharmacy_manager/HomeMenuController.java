@@ -90,12 +90,12 @@ public class HomeMenuController implements Initializable {
         statusAdd.setItems(statusList);
         medList = FXCollections.observableList(DBUtils.getMedicine(null, 0));
         tableViewAdd.setItems(medList);
-        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getId()).asObject());
-        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBrand()));
-        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProductName()));
-        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getType()));
-        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
-        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getPrice()).asObject());
+        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().id()).asObject());
+        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().brand()));
+        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().productName()));
+        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type()));
+        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().status()));
+        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().price()).asObject());
         tableViewAdd.getColumns().setAll(idCol, nameCol, prodCol, typeCol, statusCol, priceCol);
 
         dashLink.setOnAction(event -> Platform.runLater(() -> {
@@ -131,12 +131,12 @@ public class HomeMenuController implements Initializable {
         });
         tableViewAdd.setOnMouseClicked(event -> {
             Medicine med = tableViewAdd.getSelectionModel().getSelectedItem();
-            medIdAdd.setText(String.valueOf(med.getId()));
-            brandNameAdd.setText(med.getBrand());
-            prodNameAdd.setText(med.getProductName());
-            typeAdd.setValue(med.getType());
-            statusAdd.setValue(med.getStatus());
-            priceAdd.setText(String.valueOf(med.getPrice()));
+            medIdAdd.setText(String.valueOf(med.id()));
+            brandNameAdd.setText(med.brand());
+            prodNameAdd.setText(med.productName());
+            typeAdd.setValue(med.type());
+            statusAdd.setValue(med.status());
+            priceAdd.setText(String.valueOf(med.price()));
         });
     }
 
