@@ -79,6 +79,23 @@ public class DBUtils {
         }
     }
 
+    public static void updateMedicine(ActionEvent event, int medId, String brandName, String prodName, String type, String status, Double price) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password");
+             PreparedStatement psUpdateMedicine = conn.prepareStatement("UPDATE medicine SET brand = ?, productName = ?, type = ?, status = ?, price = ?, date = ? WHERE medicineId = ?")) {
+
+            psUpdateMedicine.setString(1, brandName);
+            psUpdateMedicine.setString(2, prodName);
+            psUpdateMedicine.setString(3, type);
+            psUpdateMedicine.setString(4, status);
+            psUpdateMedicine.setDouble(5, price);
+            psUpdateMedicine.setDate(6, new Date(System.currentTimeMillis()));
+            psUpdateMedicine.setInt(7, medId);
+            psUpdateMedicine.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static ArrayList<Medicine> getMedicine(ActionEvent event, int medId) {
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password")){
              PreparedStatement psGetMedicine = conn.prepareStatement("SELECT * FROM medicine");
