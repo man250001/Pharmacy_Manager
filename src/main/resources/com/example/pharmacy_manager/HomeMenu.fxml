@@ -63,12 +63,12 @@
             <AnchorPane fx:id="buyTable" layoutX="50.0" layoutY="43.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <TableView fx:id="tableViewBuy" prefHeight="200.0" prefWidth="200.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <columns>
-                     <TableColumn prefWidth="24.0" text="ID" />
-                     <TableColumn minWidth="9.0" prefWidth="67.0" text="Name" />
-                     <TableColumn prefWidth="96.0" text="Product Name" />
-                     <TableColumn prefWidth="61.0" text="Type" />
-                     <TableColumn prefWidth="56.0" text="Price" />
-                     <TableColumn prefWidth="46.0" text="Status" />
+                     <TableColumn fx:id="idColBuy" prefWidth="24.0" text="ID" />
+                     <TableColumn fx:id="nameColBuy" minWidth="9.0" prefWidth="67.0" text="Name" />
+                     <TableColumn fx:id="pNameColBuy" prefWidth="96.0" text="Product Name" />
+                     <TableColumn fx:id="typeColBuy" prefWidth="55.0" text="Type" />
+                     <TableColumn fx:id="priceColBuy" prefWidth="53.0" text="Price" />
+                     <TableColumn fx:id="quanColBuy" prefWidth="55.0" text="Quantity" />
                   </columns>
                </TableView>
             </AnchorPane>
