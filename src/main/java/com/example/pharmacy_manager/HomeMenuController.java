@@ -86,17 +86,7 @@ public class HomeMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        typeAdd.setItems(typeList);
-        statusAdd.setItems(statusList);
-        medList = FXCollections.observableList(DBUtils.getMedicine(null, 0));
-        tableViewAdd.setItems(medList);
-        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().id()).asObject());
-        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().brand()));
-        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().productName()));
-        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type()));
-        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().status()));
-        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().price()).asObject());
-        tableViewAdd.getColumns().setAll(idCol, nameCol, prodCol, typeCol, statusCol, priceCol);
+        UpdateTable();
 
         dashLink.setOnAction(event -> Platform.runLater(() -> {
             PaneDisabler();
@@ -117,6 +107,7 @@ public class HomeMenuController implements Initializable {
         medAdd.setOnAction(event -> {
             try {
                 DBUtils.addMedicine(event, Integer.parseInt(medIdAdd.getText()), brandNameAdd.getText(), prodNameAdd.getText(), typeAdd.getValue(), statusAdd.getValue(), Double.parseDouble(priceAdd.getText()));
+                UpdateTable();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -125,6 +116,7 @@ public class HomeMenuController implements Initializable {
         medDelete.setOnAction(event -> {
             try {
                 DBUtils.removeMedicine(event, Integer.parseInt(medIdAdd.getText()));
+                UpdateTable();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -132,6 +124,7 @@ public class HomeMenuController implements Initializable {
         medUpdate.setOnAction(event -> {
             try {
                 DBUtils.updateMedicine(event, Integer.parseInt(medIdAdd.getText()), brandNameAdd.getText(), prodNameAdd.getText(), typeAdd.getValue(), statusAdd.getValue(), Double.parseDouble(priceAdd.getText()));
+                UpdateTable();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -146,6 +139,22 @@ public class HomeMenuController implements Initializable {
             priceAdd.setText(String.valueOf(med.price()));
         });
     }
+
+    //region Add Medicine Methods
+    private void UpdateTable() {
+        typeAdd.setItems(typeList);
+        statusAdd.setItems(statusList);
+        medList = FXCollections.observableList(DBUtils.getMedicine(null, 0));
+        tableViewAdd.setItems(medList);
+        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().id()).asObject());
+        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().brand()));
+        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().productName()));
+        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type()));
+        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().status()));
+        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().price()).asObject());
+        tableViewAdd.getColumns().setAll(idCol, nameCol, prodCol, typeCol, statusCol, priceCol);
+    }
+    //endregion
 
     public void PaneDisabler() {
         CompletelyDisable(buyPane);
@@ -201,7 +210,7 @@ public class HomeMenuController implements Initializable {
     }
     //endregion
 
-    //region Add Medicine Methods
+    //region Buy Medicine Methods
     //endregion
 
 
