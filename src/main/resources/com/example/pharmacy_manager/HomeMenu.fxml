@@ -136,9 +136,9 @@
                      <ChoiceBox fx:id="brandBuy" layoutX="10.0" layoutY="150.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
                      <ChoiceBox fx:id="prodNameBuy" layoutX="10.0" layoutY="163.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" prefWidth="150.0" />
                      <TextField fx:id="quantityBuy" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" />
-                     <Label fx:id="priceBuy" alignment="CENTER" styleClass="text" text="\$0.00" />
+                     <Label fx:id="priceBuy" alignment="CENTER" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" styleClass="text" text="\$0.00" />
                      <TextField fx:id="amountBuy" layoutX="10.0" layoutY="176.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" />
-                     <Label fx:id="balanceBuy" alignment="CENTER" layoutX="66.0" layoutY="189.0" styleClass="text" text="\$0.00" />
+                     <Label fx:id="balanceBuy" alignment="CENTER" layoutX="66.0" layoutY="189.0" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" styleClass="text" text="\$0.00" />
                      <VBox alignment="CENTER" fillWidth="false" prefHeight="23.0" prefWidth="63.0">
                         <Button fx:id="buyButton" mnemonicParsing="false" text="Pay" />
                      </VBox>
