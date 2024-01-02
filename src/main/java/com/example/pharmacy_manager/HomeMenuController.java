@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 @SuppressWarnings({"unused", "SpellCheckingInspection", "unchecked"})
@@ -99,6 +100,7 @@ public class HomeMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         UpdateTable();
+        fillMedicine();
 
         dashLink.setOnAction(event -> Platform.runLater(() -> {
             PaneDisabler();
@@ -152,22 +154,7 @@ public class HomeMenuController implements Initializable {
         });
     }
 
-    //region Add Medicine Methods
-    private void UpdateTable() {
-        typeAdd.setItems(typeList);
-        statusAdd.setItems(statusList);
-        medList = FXCollections.observableList(DBUtils.getMedicine(null, 0));
-        tableViewAdd.setItems(medList);
-        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().id()).asObject());
-        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().brand()));
-        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().productName()));
-        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type()));
-        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().status()));
-        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().price()).asObject());
-        tableViewAdd.getColumns().setAll(idCol, nameCol, prodCol, typeCol, statusCol, priceCol);
-    }
-    //endregion
-
+    //region Menu Methods
     public void PaneDisabler() {
         CompletelyDisable(buyPane);
         CompletelyDisable(buyTable);
@@ -193,6 +180,42 @@ public class HomeMenuController implements Initializable {
         typeAdd.setValue(null);
         statusAdd.setValue(null);
     }
+    //endregion
+
+    //region Add Medicine Methods
+    private void UpdateTable() {
+        typeAdd.setItems(typeList);
+        statusAdd.setItems(statusList);
+        medList = FXCollections.observableList(DBUtils.getMedicine(null));
+        tableViewAdd.setItems(medList);
+        idCol.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().id()).asObject());
+        nameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().brand()));
+        prodCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().productName()));
+        typeCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type()));
+        statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().status()));
+        priceCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().price()).asObject());
+        tableViewAdd.getColumns().setAll(idCol, nameCol, prodCol, typeCol, statusCol, priceCol);
+    }
+    //endregion
+
+    //region Buy Medicine Methods
+    public void fillMedicine() {
+        ArrayList<Medicine> medList = DBUtils.getAvailableMedicine(null);
+        ArrayList<Integer> medIdList = new ArrayList<>();
+        ArrayList<String> brandList = new ArrayList<>(), prodNameList = new ArrayList<>(), typeList = new ArrayList<>();
+
+        for (Medicine med : medList) {
+            typeList.add(med.type());
+            medIdList.add(med.medicineId());
+            brandList.add(med.brand());
+            prodNameList.add(med.productName());
+        }
+        typeBuy.setItems(FXCollections.observableList(typeList));
+        medIdBuy.setItems(FXCollections.observableList(medIdList));
+        brandBuy.setItems(FXCollections.observableList(brandList));
+        prodNameBuy.setItems(FXCollections.observableList(prodNameList));
+    }
+    //endregion
 
     //region Disable and Enable Methods
     //CompletelyDisable Pane Object
@@ -222,8 +245,7 @@ public class HomeMenuController implements Initializable {
     }
     //endregion
 
-    //region Buy Medicine Methods
-    //endregion
+
 
 
 }
