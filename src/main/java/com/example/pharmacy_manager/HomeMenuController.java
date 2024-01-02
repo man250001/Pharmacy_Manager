@@ -31,7 +31,13 @@ public class HomeMenuController implements Initializable {
 
     //region Buy Medicine Related
     @FXML
-    private ChoiceBox<?> typeBuy, medIdBuy, brandBuy, prodNameBuy;
+    private ChoiceBox<String> typeBuy, brandBuy, prodNameBuy;
+
+    @FXML
+    private TableColumn<Transaction, String> nameColBuy, pNameColBuy, typeColBuy;
+
+    @FXML
+    private TableColumn<Transaction, Integer> idColBuy, quanColBuy;
 
     @FXML
     private TextField quantityBuy, amountBuy;
@@ -43,7 +49,13 @@ public class HomeMenuController implements Initializable {
     private Button buyButton, cartButton;
 
     @FXML
-    private TableView<?> tableViewBuy;
+    private ChoiceBox<Integer> medIdBuy;
+
+    @FXML
+    private TableColumn<Transaction, Double> priceColBuy;
+
+    @FXML
+    private TableView<Transaction> tableViewBuy;
     //endregion
 
     //region Add Medicine Related
