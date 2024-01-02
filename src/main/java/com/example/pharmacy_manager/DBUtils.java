@@ -96,6 +96,17 @@ public class DBUtils {
         }
     }
 
+    public static void addToCart(ActionEvent event, int medId, String brandName, String prodName, String type, String status, Double price, int quantity) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password")){
+            PreparedStatement psGetMedicine = conn.prepareStatement("SELECT * FROM medicine WHERE medicineId = ?");
+            psGetMedicine.setInt(1, medId);
+            ResultSet rs = psGetMedicine.executeQuery();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static ArrayList<Medicine> getMedicine(ActionEvent event, int medId) {
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password")){
              PreparedStatement psGetMedicine = conn.prepareStatement("SELECT * FROM medicine");
