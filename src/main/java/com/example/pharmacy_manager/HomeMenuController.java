@@ -95,6 +95,8 @@ public class HomeMenuController implements Initializable {
 
     final ObservableList<String> statusList = FXCollections.observableArrayList("Available", "Unavailable");
     ObservableList<Medicine> medList = FXCollections.observableArrayList();
+
+    ObservableList<Transaction> cart = FXCollections.observableArrayList();
     //endregion
 
     @Override
@@ -151,6 +153,14 @@ public class HomeMenuController implements Initializable {
             typeAdd.setValue(med.type());
             statusAdd.setValue(med.status());
             priceAdd.setText(String.valueOf(med.price()));
+        });
+        cartButton.setOnAction(event -> {
+            try {
+                DBUtils.addToCart(event, Integer.parseInt(medIdBuy.getValue().toString()), brandBuy.getValue(), prodNameBuy.getValue(), typeBuy.getValue(), Integer.parseInt(quantityBuy.getText()));
+                UpdateBuyTable();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 
@@ -214,6 +224,18 @@ public class HomeMenuController implements Initializable {
         medIdBuy.setItems(FXCollections.observableList(medIdList));
         brandBuy.setItems(FXCollections.observableList(brandList));
         prodNameBuy.setItems(FXCollections.observableList(prodNameList));
+    }
+
+    public void UpdateBuyTable() {
+        cart = FXCollections.observableArrayList(DBUtils.cart);
+        tableViewBuy.setItems(cart);
+        pNameColBuy.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().prodName()));
+        nameColBuy.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().brandName()));
+        typeColBuy.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().type()));
+        idColBuy.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().medId()).asObject());
+        quanColBuy.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().quantity()).asObject());
+        priceColBuy.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().price()).asObject());
+        tableViewBuy.getColumns().setAll(idColBuy, nameColBuy, pNameColBuy, typeColBuy, quanColBuy, priceColBuy);
     }
     //endregion
 
