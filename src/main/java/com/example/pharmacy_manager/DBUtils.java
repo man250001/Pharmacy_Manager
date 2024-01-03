@@ -15,6 +15,8 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 public class DBUtils {
 
+    public static final ArrayList<Transaction> cart = new ArrayList<>();
+
     public static void changeScene(ActionEvent event, String _fxmlFile, String _title) {
         try {
             FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(_fxmlFile));
@@ -96,12 +98,34 @@ public class DBUtils {
         }
     }
 
-    public static void addToCart(ActionEvent event, int medId, String brandName, String prodName, String type, String status, Double price, int quantity) {
+    public static void addToCart(ActionEvent event, int medId, String brandName, String prodName, String type, int quantity) {
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password")){
             PreparedStatement psGetMedicine = conn.prepareStatement("SELECT * FROM medicine WHERE medicineId = ?");
             psGetMedicine.setInt(1, medId);
             ResultSet rs = psGetMedicine.executeQuery();
 
+            while (rs.next()) {
+                cart.add(new Transaction(rs.getInt("medicineId"), rs.getString("brand"), rs.getString("productName"), rs.getString("type"), rs.getString("status"), rs.getDouble("price"), quantity));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void sendToDatabase() {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy", "root", "password")){
+            PreparedStatement psAddTransaction = conn.prepareStatement("INSERT INTO transactions (medicineId, brand, productName, type, status, price, quantity, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            for (Transaction transaction : cart) {
+                psAddTransaction.setInt(1, transaction.medId());
+                psAddTransaction.setString(2, transaction.brandName());
+                psAddTransaction.setString(3, transaction.prodName());
+                psAddTransaction.setString(4, transaction.type());
+                psAddTransaction.setString(5, transaction.status());
+                psAddTransaction.setDouble(6, transaction.price());
+                psAddTransaction.setInt(7, transaction.quantity());
+                psAddTransaction.setDate(8, new Date(System.currentTimeMillis()));
+                psAddTransaction.executeUpdate();
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
